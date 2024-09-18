@@ -1,47 +1,51 @@
 # %%
 from pandas import DataFrame
 
-from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
+from sklearn.preprocessing import MinMaxScaler, LabelEncoder
 from sklearn.base import BaseEstimator, TransformerMixin
 
-
 # %%
-class LabelEncoder(BaseEstimator, TransformerMixin):
+
+class LabelEncoderTransformer(BaseEstimator, TransformerMixin):
     """
-    One-Hot-Encodes the labels.
+    Custom transformer to wrap LabelEncoder.
     """
 
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self):
         self.encoder = None
-
+        
 
     def fit(self, X, y=None):
 
-        # Instantiating the encoder
-        self.encoder = OneHotEncoder(feature_name_combiner=(lambda _, x: str(x)), sparse_output=False)
+        # Instantiating encoder
+        self.encoder = LabelEncoder()
 
-        # Ensuring input is a DataFrame
-        df = DataFrame(X)
-
-        # Fitting encoder
-        self.encoder.fit(df)
+        # Fitting encoder to data
+        self.encoder.fit(X)
 
         return self
     
 
     def transform(self, X):
 
-        # Ensuring input is a DataFrame
-        df = DataFrame(X)
+        # Check if the encoder has been fitted
+        if self.encoder is None:
+            raise RuntimeError("You must fit the encoder before transforming data!")
+        
+        # Transform data 
+        encoded_df = DataFrame(self.encoder.transform(X))
+        
+        return encoded_df
+    
 
-        # Encoding features from 'label' column
-        encoded_data = self.encoder.transform(df)
+    def inverse_transform(self, X):
 
-        # Turning encoded data into a DataFrame
-        encoded_data_df = DataFrame(encoded_data, columns=self.encoder.get_feature_names_out())
+        # Inverse transform data
+        unencoded_df = DataFrame(self.encoder.inverse_transform(X.to_numpy().ravel()))
 
-        return encoded_data_df
+        return unencoded_df
+
+
 
 # %%
 class FeatureScaler(BaseEstimator, TransformerMixin):
