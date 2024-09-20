@@ -3,6 +3,8 @@
 ### Overview
 This project focuses on recognizing American Sign Language (ASL) finger-spelling hand poses. It extracts and preprocesses images of ASL hand gestures and trains a machine learning model to recognize and translate these images into letters of the alphabet. With this project, users can create, train, and test their own models or use the pre-trained model provided, which achieves 95% testing accuracy.
 
+---
+
 ### Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
@@ -12,6 +14,8 @@ This project focuses on recognizing American Sign Language (ASL) finger-spelling
 - [Credits](#credits)
 - [License](#license)
 - [Disclaimer](#disclaimer)
+
+---
 
 ### Installation
 To get started with this project, follow these steps:
@@ -24,7 +28,8 @@ To get started with this project, follow these steps:
    ```bash
    pip install -r requirements.txt
    ```
-   
+---
+
 ### Usage
 This project consists of several notebooks and scripts for different stages of the ASL finger-spelling recognition process:
 
@@ -43,10 +48,14 @@ This project consists of several notebooks and scripts for different stages of t
 5. **Testing the Model**:  
    To test the model on new images, run the `use-model.ipynb` notebook. You can load the pre-trained model or your own trained model and pass in new images to evaluate its performance.
 
+---
+
 ### Features
 - Full data extraction, preprocessing, and model training pipeline.
 - The ability to capture and test custom ASL hand gestures.
 - A pre-trained model with 95% accuracy, so you don’t need to start from scratch.
+
+---
 
 ### Technologies
 This project uses the following technologies and frameworks:
@@ -54,16 +63,24 @@ This project uses the following technologies and frameworks:
 - **MediaPipe**: Used for extracting hand landmarks from images and videos.
 - **PyTorch**: Deep learning framework used for model creation and training.
 
+---
+
 ### Testing
 To test your model:
 1. Use `capture_image.py` to capture new ASL images.
 2. Run the `use-model.ipynb` notebook to evaluate the model on the captured images.
 
+---
+
 ### Credits
 The image dataset used for this project was provided by the "[ASL Sign Language Alphabet Pictures [Minus J, Z]](https://www.kaggle.com/datasets/signnteam/asl-sign-language-pictures-minus-j-z)" dataset on Kaggle. Special thanks to the dataset contributors.
 
+---
+
 ### License
 This project is open-source, and anyone is free to use, modify, or distribute the code. Please provide appropriate credit when using any aspect of the project.
+
+---
 
 ### Disclaimer
 The model is not trained to recognize the ASL letters 'J' and 'Z', as these letters require motion to express, which is beyond the scope of this image-based model.
