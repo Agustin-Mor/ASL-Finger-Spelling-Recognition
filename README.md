@@ -37,7 +37,7 @@ This project consists of several notebooks and scripts for different stages of t
    Run the `data-extraction.ipynb` notebook to extract the raw ASL hand gesture data. This step pulls data from images and converts them into a usable format for the model.
    
 2. **Data Preprocessing**:  
-   Once the data is extracted, preprocess it by running `data-preprocess.ipynb`. This step cleans, normalizes, and formats the data for model training.
+   Once the data is extracted, preprocess it by running `data-preprocess.ipynb`. This step cleans, scales, and formats the data for model training.
    
 3. **Model Training**:  
    Train the machine learning model by running the `generate-model.ipynb` notebook. This will create and train a model using the preprocessed data. If you don’t want to train your own model, a pre-trained model with 95% accuracy is provided.
@@ -60,7 +60,7 @@ This project consists of several notebooks and scripts for different stages of t
 ### Technologies
 This project uses the following technologies and frameworks:
 - **Python**: Primary programming language.
-- **MediaPipe**: Used for extracting hand landmarks from images and videos.
+- **MediaPipe**: Used for extracting hand landmarks from images.
 - **PyTorch**: Deep learning framework used for model creation and training.
 
 ---
